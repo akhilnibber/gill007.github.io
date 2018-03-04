@@ -23,10 +23,14 @@ void setup()
 
 
 void draw()
-{
+{ 
   background(0);
   translate(width/2,height/2);
-  fill(253);
+   float R=random(255);
+  float G=random(255);
+   float B=random(255);
+  
+  fill(R,G,B);
   textAlign(CENTER);
   textSize(54);
   text("Under Construction",0,0);
@@ -43,24 +47,26 @@ class Star
   float y;
   float z;
   
-  float px,py;
+  float pz;
   
   Star()
 {
   x=random(-width,width);
   y=random(-height,height);
-  //z=random(0,width);
+ 
   z=random(width);
 }
 
 
 void update()
 {
-  z=z-10;
+  z=z-20;
   if(z<1)
- { z=width;
+ { 
+   z=width;
    x=random(-width,width);
-  y=random(-height,height);
+   y=random(-height,height);
+   pz=z;
 }
 }
 
@@ -71,10 +77,17 @@ void show()
  float sx=map(x/z,0,1,0,width);
  float sy=map(y/z,0,1,0,height);
  float r=map(z,0,width,16,0);
-  ellipse(sx,sy,8,8);
-  
+  ellipse(sx,sy,3,3);
+ float px=map(x/pz,0,1,0,width);
+ float py=map(y/pz,0,1,0,height);
  
+ float R=random(255);
+  float G=random(255);
+   float B=random(255);
  
+
+ stroke(R,G,B);
+ line(px,py,sx,sy);
 }
 }
 
