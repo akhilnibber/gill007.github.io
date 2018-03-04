@@ -13,10 +13,11 @@ Star[] stars=new Star[800];
 
 void setup()
 {
-  size(1500,700);
-   
+  var x=window.innerWidth;
+  var y=window.innerHeight;
+  size(x,y);
  
-  for(int i=0;i<stars.length;i++)
+ for(int i=0;i<stars.length;i++)
     stars[i]=new Star();
 }
 
@@ -25,7 +26,7 @@ void draw()
 {
   background(0);
   translate(width/2,height/2);
-   fill(253);
+  fill(253);
   textAlign(CENTER);
   textSize(54);
   text("Under Construction",0,0);
@@ -35,6 +36,7 @@ void draw()
     stars[i].show();
    }
 }
+
 class Star
 {
   float x;
@@ -66,7 +68,7 @@ void show()
 {
  fill(255);
  noStroke(); 
-float sx=map(x/z,0,1,0,width);
+ float sx=map(x/z,0,1,0,width);
  float sy=map(y/z,0,1,0,height);
  float r=map(z,0,width,16,0);
   ellipse(sx,sy,8,8);
